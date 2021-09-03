@@ -16,4 +16,7 @@ const PORT = process.env.PORT || 5000
 app.get('/', (req, res)=> {
     res.send('INDEX')
 })
+
+app.use('/entities', require('./routes/entities'))
+
 app.listen(PORT, console.log(`SERVER ON ${PORT}`))

@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../config/database')
 
-const entities = db.define('fields', {
+const entities = db.define('hyokyun_1', {
     title: {
         type: Sequelize.STRING
     },
