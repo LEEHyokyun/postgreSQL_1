@@ -17,6 +17,6 @@ app.get('/', (req, res)=> {
     res.send('INDEX')
 })
 
-app.use('/entities', require('./routes/entities'))
+app.use('/tables', require('./routes/tables'))
 
 app.listen(PORT, console.log(`SERVER ON ${PORT}`))
