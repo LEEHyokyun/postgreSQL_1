@@ -10,8 +10,10 @@ router.get('/', (req, res) => {
     //res.send('THIS IS entities')
     Model.findAll()
     .then(list=>{
-        console.log(list)
-        res.sendStatus(200)
+        //console.log(list)
+        res.render('list', {
+            list: list
+        })
     })
     .catch(err => console.error('ERROR FOUND : ', err))
 })
