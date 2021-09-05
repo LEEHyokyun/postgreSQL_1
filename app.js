@@ -17,6 +17,7 @@ app.get('/', (req, res)=> {
     res.send('INDEX')
 })
 
+//WE CAN route url request in detail from application level.
 app.use('/tables', require('./routes/tables'))
 
 app.listen(PORT, console.log(`SERVER ON ${PORT}`))
