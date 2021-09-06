@@ -1,1 +1,22 @@
-<h1>HELLO!</h1>
+<section id="list" class="container">
+    <h1>HELLO!</h1>
+
+    {{#each list}}
+        <div class="datalist">
+            <h3>{{dataValues.title}}</h3>
+            <p>{{dataValues.description}}</p>
+            <ul>
+                <li>Budget : {{dataValues.budget}}</li>
+                <li>
+                    <a href="mailto:{{dataValues.contact_email}}" class="btn btn-reverse">Apply now</a>
+                </li>
+            </ul>
+            <div class="tech">
+                <small>Technologies Needed: <span>{{dataValues.Technologies}}</span></small>
+            </div>
+        </div>
+    {{else}}
+        <p>No LIST available</p>
+    {{/each}}
+
+</section>

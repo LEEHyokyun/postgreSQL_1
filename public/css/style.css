@@ -80,8 +80,9 @@ header.inner {
 /* Buttons */
 .btn {
   color: #fff;
-  padding: 0.6rem;
-  border: 1px solid #ccc;
+  padding: 0.2rem;
+  margin-top: 5px;
+  border: 0.2px solid #ccc;
   transition: all 0.7s;
 }
 
@@ -93,7 +94,7 @@ header.inner {
 
 .btn-reverse {
   background: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  border: 0.9px solid var(--primary-color);
 }
 
 .btn-reverse:hover {
@@ -161,7 +162,7 @@ input[type='search'] {
 }
 
 /* Gigs */
-.gig {
+.datalast {
   background: var(--bg-color);
   border-bottom: 4px solid var(--primary-color);
   color: #fff;
@@ -170,17 +171,17 @@ input[type='search'] {
   box-shadow: var(--box-shadow);
 }
 
-.gig ul {
+.datalast ul {
   list-style: none;
   display: flex;
 }
 
-.gig li {
+.datalast li {
   margin-right: 0.5rem;
   padding: 0.6rem;
 }
 
-.gig .tech span {
+.datalast .tech span {
   color: var(--primary-color);
 }
 
@@ -253,11 +254,11 @@ label {
     padding: 2.3rem;
   }
 
-  .gig ul {
+  .datalast ul {
     flex-direction: column;
   }
 
-  .gig .btn {
+  .datalast .btn {
     display: block;
     margin-top: 1rem;
     text-align: center;
