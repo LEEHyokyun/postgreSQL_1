@@ -18,8 +18,11 @@ router.get('/', (req, res) => {
     .catch(err => console.error('ERROR FOUND : ', err))
 })
 
-//DATA ADD
-router.get('/add', (req, res) => {
+//post request by ADD is on /tables/add url.
+router.get('/add', (req,res)=> res.render('add'))
+
+//DATA ADD by post request
+router.post('/add', (req, res) => {
     //data add(by get request)
     const data = {
         title: 'WANTED FOR CPP DEVELOPER',

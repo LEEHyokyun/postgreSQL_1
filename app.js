@@ -20,8 +20,9 @@ app.set('view engine', 'handlebars')
 //set static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
+//Home view rendering by index template(handlebars)
 app.get('/', (req, res)=> {
-    res.send('INDEX')
+    res.render('index', { layout : 'landing'})
 })
 
 //WE CAN route url request in detail from application level.
