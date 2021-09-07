@@ -13,6 +13,9 @@ db.authenticate()
 const app = express()
 const PORT = process.env.PORT || 5000
 
+//body-parser for post request by form.
+app.use(bodyParser.urlencoded({ extended: false }))
+
 //set middleware before url request
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')

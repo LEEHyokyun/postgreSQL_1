@@ -23,29 +23,54 @@ router.get('/add', (req,res)=> res.render('add'))
 
 //DATA ADD by post request
 router.post('/add', (req, res) => {
-    //data add(by get request)
-    const data = {
-        title: 'WANTED FOR CPP DEVELOPER',
-        technologies: 'REACT, JAVA, JAVA SCRIPT',
-        budget: '$90000',
-        description: 'SPECIFIC COMPANY A',
-        contact_email: 'COMPANY_A@gmail.com'
-    }
 
+//could parse data by post by bodyparser configuration in app.js
+//destructuring data
+let {title, technologies, budget, description, contact_email} = req.body
 
-//destructuring
-let {title, technologies, budget, description, contact_email} = data
+//server side logic
+//not adding required on input attribute,
+//but log errors and inform clients to write values.
+let errors = []
 
-//ADD data to table information
-Model.create({
-    title: title,
-    technologies: technologies,
-    budget: budget,
-    description: description,
-    contact_email: contact_email
-})
+//Validate fields in server side
+if(!title){
+    errors.push({text: 'Please add title'})
+}
+if(!technologies){
+    errors.push({text: 'Please add technologies'})
+}
+if(!description){
+    errors.push({text: 'Please add description'})
+}
+if(!contact_email){
+    errors.push({text: 'Please add contact_email'})
+}
+
+//seperate logic if errors occur or not.
+if(errors.length > 0){
+    //if anything issued
+    res.render('add', {
+        errors,
+        title,
+        technologies,
+        budget,
+        description,
+        contact_email
+    })
+}else{
+    //not any issues
+    //ADD data to table information
+    Model.create({
+        title: title,
+        technologies: technologies,
+        budget: budget,
+        description: description,
+        contact_email: contact_email
+    })
 .then(list => res.redirect('/tables'))
 .catch(err=>console.error('ERROR FOUND ', err))
+}
 
 })
 
