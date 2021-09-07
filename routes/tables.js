@@ -66,6 +66,11 @@ if(errors.length > 0){
     }else{
         budget = `$${budget}`
     }
+
+    //technologies variable would be given with lowercase
+    //and space after comma is going to be removed.
+    technologies = technologies.toLowerCase().replace(/, /g, ',')
+
     //not any issues
     //ADD data to table information
     Model.create({
