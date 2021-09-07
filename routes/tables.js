@@ -59,6 +59,13 @@ if(errors.length > 0){
         contact_email
     })
 }else{
+    //budget variable would be given with dollar sign.
+    //and budget is not required, also it would be controlled.
+    if(!budget){
+        budget = 'UNKNOWN'
+    }else{
+        budget = `$${budget}`
+    }
     //not any issues
     //ADD data to table information
     Model.create({
