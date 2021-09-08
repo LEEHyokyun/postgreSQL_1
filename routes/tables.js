@@ -4,6 +4,9 @@ const router = express.Router()
 const db = require('../config/database')
 const Model = require('../models/Model')
 
+const {Sequelize} = require('sequelize')
+const Op = Sequelize.Op
+
 //WE CAN route url request in detail from application level.
 //This router is for formatting more route path and request from router level.
 router.get('/', (req, res) => {
@@ -86,6 +89,21 @@ if(errors.length > 0){
 
 })
 
+//for searching data
+router.get('/search', (req,res) => {
+    console.log('req_ \n',req)
+    console.log('req.query_ \n', req.query)
+    
+    //toLowerCase()n
+    let {term} = req.query
+    term = term.toLowerCase()
+    console.log('term_ \n', term)
 
+    Model.findAll({ where : {technologies: {[Op.like]: '%'+ term +'%'}}})
+    .then(list => res.render('list', {
+        list: list})
+    )
+    .catch(err=>console.error(err))
+})
 
 module.exports = router
